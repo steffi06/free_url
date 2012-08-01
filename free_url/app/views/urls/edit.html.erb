@@ -1,0 +1,13 @@
+<h1> So you wanna be extra cool, huh? </h1>
+
+<h2> "<%= @url.short %>" is your current shortened URL for "<%= @url.long %>". <br><br> Change it below: </h2>
+
+</br>
+
+<%= form_for(@url) do |f| %>
+
+	<%= f.label :short, "Choose a vanity url:" %>
+	<%= f.text_field :short %>
+	<%= f.submit "Update!" %>
+	
+<% end %>

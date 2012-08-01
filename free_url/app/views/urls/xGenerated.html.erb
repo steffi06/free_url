@@ -1,0 +1,98 @@
+
+_form.html.erb
+
+<%= form_for(@url) do |f| %>
+  <% if @url.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@url.errors.count, "error") %> prohibited this url from being saved:</h2>
+
+      <ul>
+      <% @url.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :long, "Enter the URL here:"  %><br />
+    <%= f.text_field :long %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+___________________________
+
+edit.html.erb
+
+<h1>Editing url</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @url %> |
+<%= link_to 'Back', urls_path %>
+
+
+____________________________
+
+index.html.erb
+
+<h1>Listing urls</h1>
+
+<table>
+  <tr>
+    <th>Short</th>
+    <th>Long</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @urls.each do |url| %>
+  <tr>
+    <td><%= url.short %></td>
+    <td><%= url.long %></td>
+    <td><%= link_to 'Show', url %></td>
+    <td><%= link_to 'Edit', edit_url_path(url) %></td>
+    <td><%= link_to 'Destroy', url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Url', new_url_path %>
+
+__________________________
+
+
+new.html.erb
+
+<h1>New url</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', urls_path %>
+
+
+_________________________
+
+show.html.erb
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Short:</b>
+  <%= @url.short %>
+</p>
+
+<p>
+  <b>Long:</b>
+  <%= @url.long %>
+</p>
+
+
+<%= link_to 'Edit', edit_url_path(@url) %> |
+<%= link_to 'Back', urls_path %>

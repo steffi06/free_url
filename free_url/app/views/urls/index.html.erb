@@ -1,0 +1,20 @@
+<h1>
+	Welcome to Free_Url!  
+	</br>
+	</br>
+	Where Urls are as free as they can be :)
+	</br>
+	</br></h1>
+			
+	<ul> <% @urls.each do |url|%>
+		
+			<li> The short url for <%= link_to url.long, url.long %> is <%= link_to url.short, url.long %>!  
+			<%= link_to "Edit", edit_url_path(url) %>
+			<%= link_to "Delete", url, method: :delete,
+			                                  data: { confirm: "You sure?" } %>
+			</li>
+			</br>
+		 <% end %>
+	</ul>
+	<%= link_to "Rip me a New one!", new_url_path %>
+	

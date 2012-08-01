@@ -1,0 +1,9 @@
+<h1>Create a short url here!</h1>
+
+<%= form_for(@url) do |f| %>
+
+	<%= f.label :long, "What URL do you want to shorten?" %>
+	<%= f.text_field :long %>
+	<%= f.submit "Shorten it!" %>
+	
+<% end %>
